@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use id;
 use App\Models\prd;
 use Illuminate\Http\Request;
 
@@ -42,17 +43,21 @@ class PrdController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(prd $prd)
+    public function edit(prd $prd, $id)
     {
-        //
+        $prd = Prd::findOrFail($id);
+        return view('prds.edit', compact('prd'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, prd $prd)
+    public function update(Request $request, prd $prd, $id)
     {
-        //
+        $prd = Prd::findOrFail($id);
+        $prd->update($request->all());
+
+        return redirect()->route('prds.index')->with('success', 'Data PRD berhasil diupdate.');
     }
 
     /**
