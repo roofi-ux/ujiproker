@@ -32,25 +32,27 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>testtest</td>
-                <td>OK</td>
-                <td>OK</td>
-                <td>OK</td>
-                <td>OK</td>
-                <td style="text-align: center;">hasil</td>
-                <td style="text-align: center;">approve</td>
-                <td style="text-align: center;">Keterangan</td>
-                <td style="text-align: center;">presen</td>
-                <td style="text-align: center">
-                  <a href="{{ route('prds.edit', $prd->id) }}"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Input
-                    Hasil</a>
-                </td>
+              @foreach ($prds as $prd)
+                <tr>
+                  <td>{{ $prd->proker }}</td>
+                  <td>{{ $prd->renker }}</td>
+                  <td>{{ $prd->target }}</td>
+                  <td>{{ $prd->janw1 }}</td>
+                  <td>{{ $prd->janw2 }}</td>
+                  <td>{{ $prd->janw3 }}</td>
+                  <td>{{ $prd->janw4 }}</td>
+                  <td style="text-align: center;">{{ $prd->hasil }}</td>
+                  <td style="text-align: center;">{{ $prd->aproval }}</td>
+                  <td style="text-align: center;">{{ $prd->ket }}</td>
+                  <td style="text-align: center;">{{ $prd->persen }}</td>
+                  <td style="text-align: center">
+                    <a href="{{ route('prds.edit', $prd->id) }}"
+                      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Input
+                      Hasil</a>
+                  </td>
 
-              </tr>
+                </tr>
+              @endforeach
             </tbody>
             <div id="editModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
               <div class="bg-white p-6 rounded-lg w-1/2">
