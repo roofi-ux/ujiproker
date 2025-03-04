@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use id;
 use App\Models\prd;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class PrdController extends Controller
 {
@@ -13,7 +14,8 @@ class PrdController extends Controller
      */
     public function index()
     {
-        //
+        $prds = Prd::all();
+        return view('prd.index', ['prds' => $prds]);
     }
 
     /**
@@ -43,21 +45,26 @@ class PrdController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(prd $prd, $id)
+    public function edit($id)
     {
         $prd = Prd::findOrFail($id);
-        return view('prds.edit', compact('prd'));
-    }
 
+        // return view('prd.index', compact('prd')); // Mengembalikan view edit
+        // $prd = Prd::all();
+
+        return view('prd.edit', ['prd' => $prd]);
+    }
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, prd $prd, $id)
+    public function update(Request $request, Prd $prd)
     {
-        $prd = Prd::findOrFail($id);
-        $prd->update($request->all());
+        // $prd = Prd::findOrFail($id);
+        // $prd->update($request->all());
 
-        return redirect()->route('prds.index')->with('success', 'Data PRD berhasil diupdate.');
+        // return redirect()->route('dashboard.prd.index')->with('success', 'Data PRD berhasil diupdate.'); // Sesuaikan redirect
+        $prd->update($request->all());
+        return redirect()->route('dashboard.prd.index')->with('success', 'Data berhasil diupdate.');
     }
 
     /**
