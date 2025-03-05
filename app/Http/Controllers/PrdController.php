@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use id;
 use App\Models\prd;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\View;
 
 class PrdController extends Controller
 {

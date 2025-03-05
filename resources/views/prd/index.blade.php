@@ -37,30 +37,31 @@
                   <td>{{ $prd->proker }}</td>
                   <td>{{ $prd->renker }}</td>
                   <td>{{ $prd->target }}</td>
-                  <td>{{ $prd->janw1 }}</td>
-                  <td>{{ $prd->janw2 }}</td>
-                  <td>{{ $prd->janw3 }}</td>
-                  <td>{{ $prd->janw4 }}</td>
+                  <td>{{ $prd->janw1 == 'OK' ? '✔️' : $prd->janw1 }}</td>
+                  <td>{{ $prd->janw2 == 'OK' ? '✔️' : $prd->janw2 }}</td>
+                  <td>{{ $prd->janw3 == 'OK' ? '✔️' : $prd->janw3 }}</td>
+                  <td>{{ $prd->janw4 == 'OK' ? '✔️' : $prd->janw4 }}</td>
                   <td style="text-align: center;">{{ $prd->hasil }}</td>
                   <td style="text-align: center;">{{ $prd->aproval }}</td>
                   <td style="text-align: center;">{{ $prd->ket }}</td>
                   <td style="text-align: center;">{{ $prd->persen }}</td>
                   <td style="text-align: center">
-                    {{-- <a href="{{ route('dashboard.prd.edit', $pr->id) }}"
-                      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Input
-                      Hasil</a> --}}
-                    {{-- <button data-modal-target="modal" data-modal-toggle="modal"
-                      class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded edit-btn"
-                      data-id="{{ $pr->id }}">Edit</button> --}}
-                    {{-- <button data-modal-target="timeline-modal" data-modal-toggle="timeline-modal"
-                      class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                      type="button">
-                      Toggle modal
-                    </button> --}}
-
-                    <a href="{{ route('dashboard.prd.edit', $prd->id) }}"
-                      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Input
-                      Hasil</a>
+                    @role('user')
+                      @if (empty($prd->hasil))
+                        <a href="{{ route('dashboard.prd.edit', $prd->id) }}"
+                          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Input
+                          Hasil</a>
+                      @else
+                        <button disabled
+                          class="text-white bg-gray-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Input
+                          Hasil</button>
+                      @endif
+                    @endrole
+                    @role('admin')
+                      <a href="{{ route('dashboard.prd.edit', $prd->id) }}"
+                        class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">Input
+                        Data</a>
+                    @endrole
 
                   </td>
                   <td></td>

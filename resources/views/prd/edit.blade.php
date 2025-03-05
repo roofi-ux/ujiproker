@@ -33,82 +33,96 @@
                 <div>
                   <label for="proker" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Program
                     Kerja</label>
-                  <textarea name="proker" id="proker" rows="4"
+                  <textarea name="proker" id="proker" rows="4" readonly
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Program Kerja">{{ $prd->proker }}</textarea>
                 </div>
                 <div>
                   <label for="renker" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Rencana
                     Kerja</label>
-                  <textarea name="renker" id="renker" rows="4"
+                  <textarea name="renker" id="renker" rows="4" readonly
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Rencana Kerja">{{ $prd->renker }}</textarea>
                 </div>
                 <div>
                   <label for="target"
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Target</label>
-                  <textarea name="target" id="target" rows="4"
+                  <textarea name="target" id="target" rows="4" readonly
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Target">{{ $prd->target }}</textarea>
                 </div>
                 <div>
-                  <label for="Janw1"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Janaw1</label>
-                  <input type="text" name="Janw1" id="Janw1"
+                  <label for="Janw1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Januari
+                    Minggu 1</label>
+                  <input type="text" name="Janw1" id="Janw1" readonly
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Januari Minggu 1" value="{{ $prd->janw1 }}">
+                    placeholder="Januari Minggu 1" value="{{ $prd->janw1 == 'OK' ? '✔️' : $prd->janw1 }}">
                 </div>
                 <div>
-                  <label for="Janw2"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Janw2</label>
-                  <input type="text" name="Janw2" id="Janw2"
+                  <label for="Janw2" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Januari
+                    Minggu 2</label>
+                  <input type="text" name="Janw2" id="Janw2" readonly
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Januari Minggu 2" value="{{ $prd->janw2 }}">
+                    placeholder="Januari Minggu 2" value="{{ $prd->janw2 == 'OK' ? '✔️' : $prd->janw2 }}">
                 </div>
                 <div>
-                  <label for="Janw3"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Janw3</label>
-                  <input type="text" name="Janw3" id="Janw3"
+                  <label for="Janw3" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Januari
+                    Minggu 3</label>
+                  <input type="text" name="Janw3" id="Janw3" readonly
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Januari Minggu 3" value="{{ $prd->janw3 }}">
+                    placeholder="Januari Minggu 3" value="{{ $prd->janw3 == 'OK' ? '✔️' : $prd->janw3 }}">
                 </div>
                 <div>
-                  <label for="Janw4"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Janw4</label>
-                  <input type="text" name="Janw4" id="Janw4"
+                  <label for="Janw4" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Januari
+                    Minggu 4</label>
+                  <input type="text" name="Janw4" id="Janw4" readonly
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Januari Minggu 4" value="{{ $prd->janw4 }}">
+                    placeholder="Januari Minggu 4" value="{{ $prd->janw4 == 'OK' ? '✔️' : $prd->janw4 }}">
                 </div>
-                <div>
-                  <label for="hasil"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Hasil</label>
-                  <input type="text" name="hasil" id="hasil"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Hasil" value="{{ $prd->hasil }}">
-                </div>
-                <div>
-                  <label for="aproval"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Approval</label>
-                  <select name="aproval" id="aproval"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option value="approve" {{ $prd->aproval == 'approve' ? 'selected' : '' }}>Approve</option>
-                    <option value="not_approve" {{ $prd->aproval == 'not_approve' ? 'selected' : '' }}>Not Approve
-                    </option>
-                  </select>
-                </div>
-                <div>
-                  <label for="ket"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Keterangan</label>
-                  <input type="text" name="ket" id="ket"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Keterangan" value="{{ $prd->ket }}">
-                </div>
+                @role('user')
+                  <div>
+                    <label for="hasil"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Hasil</label>
+                    <input type="text" name="hasil" id="hasil"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Hasil" value="{{ $prd->hasil }}">
+                  </div>
+                @endrole
+
+                @role('admin')
+                  <div>
+                    <label for="hasil"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Hasil</label>
+                    <input type="text" name="hasil" id="hasil" readonly
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Hasil" value="{{ $prd->hasil }}">
+                  </div>
+                  <div>
+                    <label for="aproval"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Approval</label>
+                    <select name="aproval" id="aproval"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                      <option value="approve" {{ $prd->aproval == 'approve' ? 'selected' : '' }}>Approve</option>
+                      <option value="not_approve" {{ $prd->aproval == 'not_approve' ? 'selected' : '' }}>Not Approve
+                      </option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="ket"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Keterangan</label>
+                    <input type="text" name="ket" id="ket"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Keterangan" value="{{ $prd->ket }}">
+                  </div>
+                @endrole
                 <div>
                   <label for="persen"
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Persentase</label>
                   <input type="text" name="persen" id="persen"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Persentase" value="{{ $prd->persen }}">
+                    placeholder="Persentase"
+                    value="{{ $prd->aproval == 'approve' ? '100%' : ($prd->aproval == 'not_approve' && $prd->ket ? '50%' : '0%') }}"
+                    readonly>
                 </div>
 
                 <button type="submit"
