@@ -23,7 +23,7 @@ class prdSeeder extends Seeder
                 'janw2' => 'OK',
                 'janw3' => '',
                 'janw4' => '',
-
+               
             ]);
     }
 }
