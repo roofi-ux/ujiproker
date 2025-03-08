@@ -196,6 +196,7 @@ Penyesuaian dimensi kemasan berdasarkan jumlah item produk yang berjumlah 24 pcs
                 'janw4' => 'OK',
             ],
 
+
         ]);
     }
 }
