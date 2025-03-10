@@ -14,20 +14,23 @@ class DivisionSeeder extends Seeder
     public function run(): void
     {
         $divisions = [
-            ['name' => 'Divisi prd'],
-            ['name' => 'Divisi hr'],
-            ['name' => 'Divisi ga'],
-            ['name' => 'Divisi mkt'],
-            ['name' => 'Divisi ecm'],
-            ['name' => 'Divisi bdrnd'],
-            ['name' => 'Divisi cnc'],
-            ['name' => 'Divisi wrhs'],
-            ['name' => 'Divisi qcs'],
-            ['name' => 'Divisi qcp'],
-            ['name' => 'Divisi qa'],
-            ['name' => 'Divisi mt'],
-            ['name' => 'Divisi protech'],
-            ['name' => 'Divisi farm'],
+            ['name' => 'prd'],
+            ['name' => 'hr'],
+            ['name' => 'ga'],
+            ['name' => 'mkt'],
+            ['name' => 'ecm'],
+            ['name' => 'bdrnd'],
+            ['name' => 'cnc'],
+            ['name' => 'wrhs'],
+            ['name' => 'qcs'],
+            ['name' => 'qcp'],
+            ['name' => 'qa'],
+            ['name' => 'mt'],
+            ['name' => 'protech'],
+            ['name' => 'farm'],
+            ['name' => 'finance'],
+            ['name' => 'purchase'],
+            ['name' => 'export'],
         ];
 
         foreach ($divisions as $division) {

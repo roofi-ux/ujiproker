@@ -13,7 +13,7 @@ class qcpSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('mkts')->insert([
+        DB::table('qcps')->insert([
             [
                 'proker' => 'Monitoring proses pada setiap tahapan produksi',
                 'renker' => 'Peningkatan intensitas Inspeksi dan monitoring proses pada setiap tahapan produksi dari setiap 2 jam menjadi setiap jam',

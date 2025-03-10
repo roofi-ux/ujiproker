@@ -221,6 +221,186 @@ class protechSeeder extends Seeder
                 'janw3' => '',
                 'janw4' => 'OK',
             ],
+            [
+                'proker' => 'Pembuatan Formulir Elektronik',
+                'renker' => '- Melakukan pertemuan dengan pemangku kepentingan untuk mengidentifikasi pengguna formulir dan kebutuhan data.
+                             - Menetapkan tujuan formulir dan data yang diperlukan untuk mencapai tujuan tersebut.',
+                'target' => '- Menyelesaikan pembuatan formulir elektronik dalam waktu 2 bulan.
+                             - Memastikan formulir dapat diakses dan diisi dengan mudah oleh pengguna.',
+                'janw1' => 'OK',
+                'janw2' => 'OK',
+                'janw3' => 'OK',
+                'janw4' => 'OK',
+            ],
+            [
+                'proker' => 'Pembuatan Formulir Elektronik',
+                'renker' => '- Menyusun struktur formulir yang logis dan intuitif.
+                             - Memastikan bahwa formulir mencakup semua bidang yang diperlukan tanpa redundansi.',
+                'target' => '- Menyelesaikan pembuatan formulir elektronik dalam waktu 2 bulan.
+                             - Memastikan formulir dapat diakses dan diisi dengan mudah oleh pengguna.',
+                'janw1' => '',
+                'janw2' => '',
+                'janw3' => 'OK',
+                'janw4' => 'OK',
+            ],
+            [
+                'proker' => 'Upgrade Portal Manajemen Proyek',
+                'renker' => '- Mengadakan pertemuan dengan pemangku kepentingan untuk mengidentifikasi kebutuhan dan harapan pengguna.
+                             - Membuat daftar fitur dan fungsionalitas yang diperlukan untuk mencapai tujuan manajemen proyek.',
+                'target' => '- Menyelesaikan pengembangan portal manajemen proyek
+                             - Memastikan portal dapat mengakomodasi kebutuhan manajemen proyek yang kompleks dan beragam.',
+                'janw1' => 'OK',
+                'janw2' => 'OK',
+                'janw3' => 'OK',
+                'janw4' => 'OK',
+            ],
+            [
+                'proker' => 'Upgrade Portal Manajemen Proyek',
+                'renker' => '- Menyusun desain antarmuka yang intuitif dan mudah digunakan.
+                             - Memastikan kesesuaian antarmuka dengan kebutuhan pemangku kepentingan.',
+                'target' => '- Menyelesaikan pengembangan portal manajemen proyek
+                             - Memastikan portal dapat mengakomodasi kebutuhan manajemen proyek yang kompleks dan beragam.',
+                'janw1' => 'OK',
+                'janw2' => 'OK',
+                'janw3' => 'OK',
+                'janw4' => 'OK',
+            ],
+            [
+                'proker' => 'Upgrade Portal Manajemen Proyek',
+                'renker' => '- Membuat jadwal pengembangan yang memperhitungkan tahapan dan tenggat waktu.
+                             - Menyusun tim pengembangan yang terdiri dari pengembang perangkat lunak, desainer UI/UX, dan pemangku kepentingan.',
+                'target' => '- Menyelesaikan pengembangan portal manajemen proyek
+                             - Memastikan portal dapat mengakomodasi kebutuhan manajemen proyek yang kompleks dan beragam.',
+                'janw1' => 'OK',
+                'janw2' => 'OK',
+                'janw3' => 'OK',
+                'janw4' => 'OK',
+            ],
+            [
+                'proker' => 'Upgrade Portal Manajemen Proyek',
+                'renker' => '- Melaksanakan pengembangan secara bertahap menggunakan metodologi Agile untuk fleksibilitas dan responsivitas terhadap perubahan.
+                             - Mengadakan pertemuan sprint secara teratur untuk mengevaluasi kemajuan dan memberikan umpan balik.',
+                'target' => '- Menyelesaikan pengembangan portal manajemen proyek
+                             - Memastikan portal dapat mengakomodasi kebutuhan manajemen proyek yang kompleks dan beragam.',
+                'janw1' => '',
+                'janw2' => '',
+                'janw3' => 'OK',
+                'janw4' => 'OK',
+            ],
+            [
+                'proker' => 'Upgrade Portal Manajemen Proyek',
+                'renker' => '- Meluncurkan portal secara bertahap untuk meminimalkan dampak pada operasional proyek yang sedang berjalan.
+- Memberikan pelatihan kepada pengguna baru dan mendukung migrasi data yang lancar.',
+                'target' => '- Menyelesaikan pengembangan portal manajemen proyek
+                             - Memastikan portal dapat mengakomodasi kebutuhan manajemen proyek yang kompleks dan beragam.',
+                'janw1' => 'OK',
+                'janw2' => 'OK',
+                'janw3' => 'OK',
+                'janw4' => 'OK',
+            ],
+            [
+                'proker' => 'Upgrade Portal Manajemen Proyek',
+                'renker' => '- Mengadakan sesi pelatihan untuk pengguna portal manajemen proyek.
+- Membuat panduan pengguna yang lengkap untuk referensi selanjutnya.',
+                'target' => '- Menyelesaikan pengembangan portal manajemen proyek
+                             - Memastikan portal dapat mengakomodasi kebutuhan manajemen proyek yang kompleks dan beragam.',
+                'janw1' => 'OK',
+                'janw2' => 'OK',
+                'janw3' => 'OK',
+                'janw4' => 'OK',
+            ],
+            [
+                'proker' => 'Upgrade Portal Manajemen Proyek',
+                'renker' => '- Menjadwalkan pemeliharaan rutin untuk memastikan ketersediaan dan kinerja optimal.
+- Melakukan pembaruan keamanan dan perbaikan bug secara berkala.',
+                'target' => '- Menyelesaikan pengembangan portal manajemen proyek
+                             - Memastikan portal dapat mengakomodasi kebutuhan manajemen proyek yang kompleks dan beragam.',
+                'janw1' => 'OK',
+                'janw2' => 'OK',
+                'janw3' => '',
+                'janw4' => '',
+            ],
+            [
+                'proker' => 'Upgrade Portal Manajemen Proyek',
+                'renker' => '- Mengumpulkan umpan balik pengguna untuk evaluasi fungsionalitas.
+- Merencanakan pembaruan berkelanjutan berdasarkan kebutuhan pengguna dan perkembangan teknologi.',
+                'target' => '- Menyelesaikan pengembangan portal manajemen proyek
+                             - Memastikan portal dapat mengakomodasi kebutuhan manajemen proyek yang kompleks dan beragam.',
+                'janw1' => '',
+                'janw2' => '',
+                'janw3' => 'OK',
+                'janw4' => 'OK',
+            ],
+            [
+                'proker' => 'Upgrade Portal Manajemen Proyek',
+                'renker' => '- Menggunakan alat analisis untuk memonitor penggunaan portal.
+- Menganalisis data penggunaan untuk memahami tren dan mengidentifikasi area perbaikan.',
+                'target' => 'Monitoring dan Evaluasi:',
+                'janw1' => 'OK',
+                'janw2' => '',
+                'janw3' => 'OK',
+                'janw4' => '',
+            ],
+            [
+                'proker' => 'Upgrade Portal Manajemen Proyek',
+                'renker' => '- Melakukan survei kepuasan pengguna secara berkala.
+- Menggunakan umpan balik untuk meningkatkan antarmuka pengguna dan fungsionalitas portal.',
+                'target' => 'Monitoring dan Evaluasi:',
+                'janw1' => '',
+                'janw2' => 'OK',
+                'janw3' => '',
+                'janw4' => 'OK',
+            ],
+            [
+                'proker' => 'Upgrade Portal Manajemen Proyek',
+                'renker' => '- Menjamin bahwa portal memiliki lapisan keamanan yang kuat.
+- Melibatkan ahli keamanan untuk melakukan audit dan memastikan kepatuhan dengan standar keamanan.',
+                'target' => 'Monitoring dan Evaluasi:',
+                'janw1' => 'OK',
+                'janw2' => '',
+                'janw3' => '',
+                'janw4' => '',
+            ],
+            [
+                'proker' => 'Upgrade Portal Manajemen Proyek',
+                'renker' => '- Melakukan evaluasi kinerja portal secara berkala.
+- Membandingkan kinerja portal dengan tujuan awal dan menentukan langkah-langkah perbaikan.',
+                'target' => 'Monitoring dan Evaluasi:',
+                'janw1' => '',
+                'janw2' => '',
+                'janw3' => '',
+                'janw4' => 'OK',
+            ],
+            [
+                'proker' => 'Upgrade Portal Manajemen Proyek',
+                'renker' => '- Menjamin bahwa portal memiliki lapisan keamanan yang kuat.
+- Melibatkan ahli keamanan untuk melakukan audit dan memastikan kepatuhan dengan standar keamanan.',
+                'target' => 'Keamanan Data:',
+                'janw1' => 'OK',
+                'janw2' => '',
+                'janw3' => '',
+                'janw4' => '',
+            ],
+            [
+                'proker' => 'Upgrade Portal Manajemen Proyek',
+                'renker' => '- Melibatkan pengguna dalam sesi pelatihan keamanan.
+- Menyampaikan informasi terkini tentang ancaman keamanan dan praktik terbaik untuk menghindarinya.',
+                'target' => 'Keamanan Data:',
+                'janw1' => '',
+                'janw2' => 'OK',
+                'janw3' => '',
+                'janw4' => '',
+            ],
+            [
+                'proker' => 'Upgrade Portal Manajemen Proyek',
+                'renker' => '- Melakukan evaluasi keberlanjutan untuk memastikan bahwa portal tetap relevan dan sesuai dengan kebutuhan organisasi.
+- Menyusun rencana pembaruan jangka panjang untuk memastikan keberlanjutan dan adaptasi dengan perkembangan teknologi.',
+                'target' => 'Evaluasi Keberlanjutan:',
+                'janw1' => '',
+                'janw2' => '',
+                'janw3' => 'OK',
+                'janw4' => 'OK',
+            ],
 
         ]);
     }
