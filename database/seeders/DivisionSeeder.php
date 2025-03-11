@@ -30,7 +30,9 @@ class DivisionSeeder extends Seeder
             ['name' => 'farm'],
             ['name' => 'finance'],
             ['name' => 'purchase'],
-            ['name' => 'export'],
+            ['name' => 'export'],     
+            
+
         ];
 
         foreach ($divisions as $division) {

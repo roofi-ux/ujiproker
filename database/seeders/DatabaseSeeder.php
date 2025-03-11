@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call([RolePermissionSeeder::class, prdSeeder::class,]);
+        $this->call([RolePermissionSeeder::class, prdSeeder::class, cncSeeder::class, bdRndSeeder::class, ecmseeder::class, export::class, farmSeeder::class, gaSeeder::class, hrSeeder::class, mktSeeder::class, mtSeeder::class, protechSeeder::class, qaSeeder::class, qcpSeeder::class, wrhsSeeder::class]);
 
         // User::factory()->create([
         //     'name' => 'Test User',

@@ -4,14 +4,13 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('ecms', function (Blueprint $table) {
+        Schema::create('purchases', function (Blueprint $table) {
             $table->id();
             $table->longText('proker');
             $table->longText('renker');
@@ -20,9 +19,9 @@ return new class extends Migration
             $table->string('janw2')->nullable();
             $table->string('janw3')->nullable();
             $table->string('janw4')->nullable();
-            $table->longText('hasil')->nullable()->change();
+            $table->longText('hasil')->nullable();
             $table->string('persen')->nullable();
-            $table->string('achieve')->nullable()->change();
+            $table->string('achieve')->nullable();
             $table->string('ket')->nullable();
             $table->softDeletes();
             $table->timestamps();
@@ -34,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ecms');
+        Schema::dropIfExists('purchases');
     }
 };

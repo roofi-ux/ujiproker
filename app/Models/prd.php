@@ -14,5 +14,19 @@ class prd extends Model
     protected $guarded = [
         'id',
     ];
+    protected $fillable = [
+        'proker',
+        'renker',
+        'target',
+        'janw1',
+        'janw2',
+        'janw3',
+        'janw4',
+        'hasil', // Tetap 'hasil', tapi sekarang untuk path file PDF
+        'achieve', // Diubah dari 'aproval' menjadi 'achieve'
+        'ket',
+        'persen',
+    ];
 
+    protected $dates = ['deleted_at'];
 }

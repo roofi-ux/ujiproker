@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ecms', function (Blueprint $table) {
+        Schema::create('finances', function (Blueprint $table) {
             $table->id();
             $table->longText('proker');
             $table->longText('renker');
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ecms');
+        Schema::dropIfExists('finances');
     }
 };

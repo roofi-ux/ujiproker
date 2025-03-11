@@ -19,10 +19,10 @@ return new class extends Migration {
             $table->string('janw2')->nullable();
             $table->string('janw3')->nullable();
             $table->string('janw4')->nullable();
-            $table->string('hasil')->nullable();
-            $table->string('aproval')->nullable();
-            $table->string('ket')->nullable();
+            $table->longText('hasil')->nullable();
             $table->string('persen')->nullable();
+            $table->string('achieve')->nullable();
+            $table->string('ket')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
