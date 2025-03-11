@@ -13,7 +13,7 @@ class protechSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('mts')->insert([
+        DB::table('proteches')->insert([
             [
                 'proker' => 'Peningakatan kapasitas produksi cookies BM & PB 2x lipat dari kapasitas Tahun 2024',
                 'renker' => 'Penambahan Oven Pengering Rotary dan Trolley',
