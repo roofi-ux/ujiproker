@@ -19,6 +19,13 @@
     {{-- <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.3"></script> --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css">
 
+    <style>
+      div.dt-container {
+        width: 100%;
+        margin: 0 auto;
+      }
+    </style>
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
@@ -44,10 +51,12 @@
 
     <script>
       $('#example').DataTable({
+        scrollX: true,
         columnDefs: [{
           targets: -1,
-          visible: false
+          visible: false,
         }]
+
       });
     </script>
 

@@ -12,7 +12,8 @@ class HrController extends Controller
      */
     public function index()
     {
-        //
+        $hrs = hr::all();
+        return view('dashboard.hr.index', ['hrs' => $hrs]);
     }
 
     /**

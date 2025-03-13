@@ -11,6 +11,8 @@ class prd extends Model
 {
     use HasFactory, SoftDeletes, HasRoles;
 
+    protected $table = 'prds';
+
     protected $guarded = [
         'id',
     ];
@@ -29,4 +31,8 @@ class prd extends Model
     ];
 
     protected $dates = ['deleted_at'];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
