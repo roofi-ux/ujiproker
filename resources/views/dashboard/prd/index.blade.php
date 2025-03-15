@@ -18,9 +18,9 @@
                 <th rowspan="2" width="15%">Target</th>
                 <th colspan="4" style="text-align: center;" width="10%" data-dt-order="disable">Januari</th>
                 <th rowspan="2" width="5%" data-dt-order="disable" style="text-align: center;">Hasil dicapai</th>
-                <th rowspan="2" width="5%" data-dt-order="disable" style="text-align: center;">Approval</th>
-                <th rowspan="2" width="5%" data-dt-order="disable" style="text-align: center;">Keterangan</th>
+                <th rowspan="2" width="5%" data-dt-order="disable" style="text-align: center;">Achievement</th>
                 <th rowspan="2" width="5%" data-dt-order="disable" style="text-align: center;">Persentase</th>
+                <th rowspan="2" width="5%" data-dt-order="disable" style="text-align: center;">Keterangan</th>
                 <th rowspan="2" width="5%" data-dt-order="disable" style="text-align: center;">Aksi</th>
                 <th></th>
               </tr>
@@ -41,8 +41,8 @@
                   <td>{{ $prd->janw2 == 'OK' ? '✔️' : $prd->janw2 }}</td>
                   <td>{{ $prd->janw3 == 'OK' ? '✔️' : $prd->janw3 }}</td>
                   <td>{{ $prd->janw4 == 'OK' ? '✔️' : $prd->janw4 }}</td>
-                  <td style="text-align: center;">{{ $prd->hasil }}</td>
-                  <td style="text-align: center;">{{ $prd->aproval }}</td>
+                  <td class=" whitespace-normal break-words" style="max-width: 100px;">{{ $prd->hasil }}</td>
+                  <td style="text-align: center;">{{ $prd->achieve }}</td>
                   <td style="text-align: center;">{{ $prd->ket }}</td>
                   <td style="text-align: center;">{{ $prd->persen }}</td>
                   <td style="text-align: center">
@@ -53,8 +53,8 @@
                           Hasil</a>
                       @else
                         <button disabled
-                          class="text-white bg-gray-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Input
-                          Hasil</button>
+                          class="text-white bg-gray-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Input Hasil
+                        </button>
                       @endif
                     @endrole
                     @role('admin')

@@ -11,7 +11,7 @@
         <div class="p-6 text-gray-900 dark:text-gray-100">
 
           <div class="container mx-auto py-6">
-            <h1 class="text-2xl font-bold mb-4">Edit Data PRDS</h1>
+            <h1 class="text-2xl font-bold mb-4">Data Hasil Produksi</h1>
 
             <div class="mb-4">
               <a href="{{ route('dashboard.prd.index') }}"

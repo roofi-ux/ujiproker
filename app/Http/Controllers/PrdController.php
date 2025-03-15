@@ -101,7 +101,7 @@ class PrdController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Prd $prd)
+    public function update(Request $request, $id)
     {
         // $prd = Prd::findOrFail($id);
         // $prd->update($request->all());
@@ -111,35 +111,39 @@ class PrdController extends Controller
         // return redirect()->route('dashboard.prd.index')->with('success', 'Data berhasil diupdate.');
 
         // Validasi input
-        $request->validate([
-            'proker' => 'required',
-            'renker' => 'required',
-            'target' => 'required',
-            'hasil_pdf' => 'nullable|file|mimes:pdf|max:2048', // Validasi untuk file PDF, nama input di form adalah 'hasil_pdf'
-            'persen' => 'required|in:0%,25%,50%,75%,100%', // Validasi untuk option button persen
-            'achieve' => 'required|in:Achieve,Not Achieve', // Validasi untuk achieve
-            'ket' => 'nullable',
-        ]);
-
-        $prdData = $request->except('hasil_pdf'); // Ambil semua input kecuali file PDF
-
-        // Proses upload file PDF jika ada file baru diupload
-        if ($request->hasFile('hasil_pdf')) {
-            // Hapus file PDF lama jika ada (opsional, tergantung kebutuhan)
-            if ($prd->hasil) {
-                Storage::disk('public')->delete($prd->hasil); // Hapus file lama dari storage
+      
+            $request->validate([
+                'proker' => 'required',
+                'renker' => 'required',
+                'target' => 'required',
+                'hasil_pdf' => 'nullable|file|mimes:pdf|max:2048', // Validasi untuk file PDF, nama input di form adalah 'hasil_pdf'
+                'persen' => 'required|in:0%,25%,50%,75%,100%', // Validasi untuk option button persen
+                'achieve' => 'required|in:Achieve,Not Achieve', // Validasi untuk achieve
+                'ket' => 'nullable',
+            ]);
+        
+            $prd = Prd::findOrFail($id); // Pastikan Anda mengambil model berdasarkan $id
+        
+            $prdData = $request->except('hasil_pdf'); // Ambil semua input kecuali file PDF
+        
+            // Proses upload file PDF jika ada file baru diupload
+            if ($request->hasFile('hasil_pdf')) {
+                // Hapus file PDF lama jika ada (opsional, tergantung kebutuhan)
+                if ($prd->hasil) {
+                    Storage::disk('public')->delete($prd->hasil); // Hapus file lama dari storage
+                }
+        
+                $file = $request->file('hasil_pdf');
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $path = $file->storeAs('uploads/pdfs', $filename, 'public'); // Simpan file baru
+                $prdData['hasil'] = $path; // Update path file di data
             }
-
-            $file = $request->file('hasil_pdf');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $path = $file->storeAs('uploads/pdfs', $filename, 'public'); // Simpan file baru
-            $prdData['hasil'] = $path; // Update path file di data
+        
+            $prd->update($prdData);
+        
+            return redirect()->route('dashboard.prd.index')->with('success', 'Data PRDS berhasil diupdate.');
         }
-
-        $prd->update($prdData);
-
-        return redirect()->route('dashboard.prd.index')->with('success', 'Data PRDS berhasil diupdate.');
-    }
+    
 
     /**
      * Remove the specified resource from storage.
