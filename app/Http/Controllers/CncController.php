@@ -113,7 +113,7 @@ class CncController extends Controller
 
         $cnc->update($cncData);
 
-        return redirect()->route('dashboard.cnc.index')->with('success', 'Data cnc berhasil diupdate.');
+        return redirect()->route('dashboard.cnc.index')->with('success', 'Data CNC berhasil diupdate.');
 
     }
 

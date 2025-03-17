@@ -11,26 +11,26 @@
         <div class="p-6 text-gray-900 dark:text-gray-100">
 
           <div class="container mx-auto py-6">
-            <h1 class="text-2xl font-bold mb-4">Data Hasil QCS</h1>
+            <h1 class="text-2xl font-bold mb-4">Data Hasil PURCHASE</h1>
 
             <div class="mb-4">
-              <a qcsef="{{ route('dashboard.qcs.index') }}"
+              <a purchaseef="{{ route('dashboard.purchase.index') }}"
                 class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                 Kembali
               </a>
             </div>
-            @if (is_object($qcs))
-              {{-- {{ dd($qcs) }} --}}
+            @if (is_object($purchase))
+              {{-- {{ dd($purchase) }} --}}
             @else
               {{-- Handle the error or provide a default object --}}
-              <?php $qcs = (object) ['id' => '', 'proker' => '', 'renker' => '', 'target' => '', 'Janw1' => '', 'Janw2' => '', 'Janw3' => '', 'Janw4' => '', 'hasil' => '', 'aproval' => '', 'ket' => '', 'persen' => '']; ?>
+              <?php $purchase = (object) ['id' => '', 'proker' => '', 'renker' => '', 'target' => '', 'Janw1' => '', 'Janw2' => '', 'Janw3' => '', 'Janw4' => '', 'hasil' => '', 'aproval' => '', 'ket' => '', 'persen' => '']; ?>
             @endif
 
             <div class="py-12">
               <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                   <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <form method="POST" action="{{ route('dashboard.qcs.update', $qcs->id) }}"
+                    <form method="POST" action="{{ route('dashboard.purchase.update', $purchase->id) }}"
                       enctype="multipart/form-data">
                       @csrf
                       @method('PUT')
@@ -39,14 +39,14 @@
                         <div class="relative z-0 w-full mb-6 group">
                           <input type="text" name="proker" id="proker"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                            placeholder=" " value="{{ old('proker', $qcs->proker) }}" readonly />
+                            placeholder=" " value="{{ old('proker', $purchase->proker) }}" readonly />
                           <label for="proker"
                             class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:end-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Proker</label>
                         </div>
                         <div class="relative z-0 w-full mb-6 group">
                           <input type="text" name="renker" id="renker"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                            placeholder=" " value="{{ old('renker', $qcs->renker) }}" readonly />
+                            placeholder=" " value="{{ old('renker', $purchase->renker) }}" readonly />
                           <label for="renker"
                             class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:end-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Renker</label>
                         </div>
@@ -55,7 +55,7 @@
                         <div class="relative z-0 w-full mb-6 group">
                           <input type="text" name="target" id="target"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                            placeholder=" " value="{{ old('target', $qcs->target) }}" readonly />
+                            placeholder=" " value="{{ old('target', $purchase->target) }}" readonly />
                           <label for="target"
                             class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:end-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Target</label>
                         </div>
@@ -64,7 +64,7 @@
                         <div class="relative z-0 w-full mb-6 group">
                           <input type="text" name="janw1" id="janw1"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                            placeholder=" " value="{{ old('janw1', $qcs->janw1) }}" readonly />
+                            placeholder=" " value="{{ old('janw1', $purchase->janw1) }}" readonly />
                           <label for="janw1"
                             class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:end-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Januari
                             W1</label>
@@ -72,7 +72,7 @@
                         <div class="relative z-0 w-full mb-6 group">
                           <input type="text" name="janw2" id="janw2"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                            placeholder=" " value="{{ old('janw2', $qcs->janw2) }}" readonly />
+                            placeholder=" " value="{{ old('janw2', $purchase->janw2) }}" readonly />
                           <label for="janw2"
                             class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:end-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Januari
                             W2</label>
@@ -80,7 +80,7 @@
                         <div class="relative z-0 w-full mb-6 group">
                           <input type="text" name="janw3" id="janw3"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                            placeholder=" " value="{{ old('janw3', $qcs->janw3) }}" readonly />
+                            placeholder=" " value="{{ old('janw3', $purchase->janw3) }}" readonly />
                           <label for="janw3"
                             class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:end-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Januari
                             W3</label>
@@ -88,7 +88,7 @@
                         <div class="relative z-0 w-full mb-6 group">
                           <input type="text" name="janw4" id="janw4"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                            placeholder=" " value="{{ old('janw4', $qcs->janw4) }}" readonly />
+                            placeholder=" " value="{{ old('janw4', $purchase->janw4) }}" readonly />
                           <label for="janw4"
                             class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:end-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Januari
                             W4</label>
@@ -106,18 +106,18 @@
                             @error('hasil_pdf')
                               <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</p>
                             @enderror
-                            @if ($qcs->hasil)
+                            @if ($purchase->hasil)
                               <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">File PDF Tersimpan:
-                                <a qcsef="{{ Storage::url($qcs->hasil) }}" target="_blank"
-                                  class="underline text-blue-600 dark:text-blue-500 hover:text-blue-800 dark:hover:text-blue-700">{{ Str::afterLast($qcs->hasil, '/') }}</a>
+                                <a purchaseef="{{ Storage::url($purchase->hasil) }}" target="_blank"
+                                  class="underline text-blue-600 dark:text-blue-500 hover:text-blue-800 dark:hover:text-blue-700">{{ Str::afterLast($purchase->hasil, '/') }}</a>
                               </p>
                             @endif
                           @else
-                            @if ($qcs->hasil)
+                            @if ($purchase->hasil)
                               <p class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">File PDF
                                 Tersimpan:</p>
-                              <a qcsef="{{ Storage::url($qcs->hasil) }}" target="_blank"
-                                class="underline text-blue-600 dark:text-blue-500 hover:text-blue-800 dark:hover:text-blue-700">{{ Str::afterLast($qcs->hasil, '/') }}</a>
+                              <a purchaseef="{{ Storage::url($purchase->hasil) }}" target="_blank"
+                                class="underline text-blue-600 dark:text-blue-500 hover:text-blue-800 dark:hover:text-blue-700">{{ Str::afterLast($purchase->hasil, '/') }}</a>
                             @else
                               <p class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Belum ada file
                                 PDF diupload.</p>
@@ -134,7 +134,7 @@
                                 <div class="flex items-center ps-3">
                                   <input id="persen-0" type="radio" value="0%" name="persen"
                                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                                    {{ old('persen', $qcs->persen) == '0%' ? 'checked' : '' }} required>
+                                    {{ old('persen', $purchase->persen) == '0%' ? 'checked' : '' }} required>
                                   <label for="persen-0"
                                     class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">0%</label>
                                 </div>
@@ -143,7 +143,7 @@
                                 <div class="flex items-center ps-3">
                                   <input id="persen-25" type="radio" value="25%" name="persen"
                                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                                    {{ old('persen', $qcs->persen) == '25%' ? 'checked' : '' }} required>
+                                    {{ old('persen', $purchase->persen) == '25%' ? 'checked' : '' }} required>
                                   <label for="persen-25"
                                     class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">25%</label>
                                 </div>
@@ -152,7 +152,7 @@
                                 <div class="flex items-center ps-3">
                                   <input id="persen-50" type="radio" value="50%" name="persen"
                                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                                    {{ old('persen', $qcs->persen) == '50%' ? 'checked' : '' }} required>
+                                    {{ old('persen', $purchase->persen) == '50%' ? 'checked' : '' }} required>
                                   <label for="persen-50"
                                     class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">50%</label>
                                 </div>
@@ -161,7 +161,7 @@
                                 <div class="flex items-center ps-3">
                                   <input id="persen-75" type="radio" value="75%" name="persen"
                                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                                    {{ old('persen', $qcs->persen) == '75%' ? 'checked' : '' }} required>
+                                    {{ old('persen', $purchase->persen) == '75%' ? 'checked' : '' }} required>
                                   <label for="persen-75"
                                     class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">75%</label>
                                 </div>
@@ -170,7 +170,7 @@
                                 <div class="flex items-center ps-3">
                                   <input id="persen-100" type="radio" value="100%" name="persen"
                                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                                    {{ old('persen', $qcs->persen) == '100%' ? 'checked' : '' }} required>
+                                    {{ old('persen', $purchase->persen) == '100%' ? 'checked' : '' }} required>
                                   <label for="persen-100"
                                     class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">100%</label>
                                 </div>
@@ -179,7 +179,7 @@
                           @else
                             <input type="text"
                               class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                              value="{{ old('persen', $qcs->persen) }}" readonly />
+                              value="{{ old('persen', $purchase->persen) }}" readonly />
                           @endif
                           @error('persen')
                             <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</p>
@@ -194,18 +194,18 @@
                             <select name="achieve" id="achieve"
                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                               required>
-                              <option value="" {{ old('achieve', $qcs->achieve) == '' ? 'selected' : '' }}>--
+                              <option value="" {{ old('achieve', $purchase->achieve) == '' ? 'selected' : '' }}>--
                                 Pilih Achieve --</option>
                               <option value="Achieve"
-                                {{ old('achieve', $qcs->achieve) == 'Achieve' ? 'selected' : '' }}>Achieve</option>
+                                {{ old('achieve', $purchase->achieve) == 'Achieve' ? 'selected' : '' }}>Achieve</option>
                               <option value="Not Achieve"
-                                {{ old('achieve', $qcs->achieve) == 'Not Achieve' ? 'selected' : '' }}>Not Achieve
+                                {{ old('achieve', $purchase->achieve) == 'Not Achieve' ? 'selected' : '' }}>Not Achieve
                               </option>
                             </select>
                           @else
                             <input type="text"
                               class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                              value="{{ old('achieve', $qcs->achieve) }}" readonly />
+                              value="{{ old('achieve', $purchase->achieve) }}" readonly />
                           @endif
                           @error('achieve')
                             <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</p>
@@ -217,11 +217,11 @@
                           @if (auth()->check() && auth()->user()->hasRole('admin'))
                             <textarea name="ket" id="ket" rows="3"
                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                              placeholder="Keterangan Tambahan (Opsional)">{{ old('ket', $qcs->ket) }}</textarea>
+                              placeholder="Keterangan Tambahan (Opsional)">{{ old('ket', $purchase->ket) }}</textarea>
                           @else
                             <textarea id="ket" rows="3"
                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                              readonly>{{ old('ket', $qcs->ket) }}</textarea>
+                              readonly>{{ old('ket', $purchase->ket) }}</textarea>
                           @endif
                           @error('ket')
                             <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</p>

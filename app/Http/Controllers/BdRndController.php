@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\bdRnd;
+use App\Models\bdrnd;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,7 +13,7 @@ class BdRndController extends Controller
      */
     public function index()
     {
-        $bdrnds = bdRnd::all();
+        $bdrnds = bdrnd::all();
         return view('dashboard.bdrnd.index', ['bdrnds' => $bdrnds]);
     }
 
@@ -53,7 +53,7 @@ class BdRndController extends Controller
 
         bdrnd::create($bdrndData);
 
-        return redirect()->route('dashboard.bdrnd.index')->with('success', 'Data bdrnds berhasil ditambahkan.');
+        return redirect()->route('dashboard.bdrnd.index')->with('success', 'Data bdrndS berhasil ditambahkan.');
 
     }
 
@@ -113,7 +113,7 @@ class BdRndController extends Controller
 
         $bdrnd->update($bdrndData);
 
-        return redirect()->route('dashboard.bdrnd.index')->with('success', 'Data bdrnd berhasil diupdate.');
+        return redirect()->route('dashboard.bdrnd.index')->with('success', 'Data BDRND berhasil diupdate.');
 
     }
 

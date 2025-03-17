@@ -11,7 +11,7 @@ class protech extends Model
 {
     use HasFactory, SoftDeletes, HasRoles;
 
-    protected $table = 'protechs';
+    protected $table = 'proteches';
 
     protected $guarded = [
         'id',

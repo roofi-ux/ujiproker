@@ -33,21 +33,21 @@
               </tr>
             </thead>
             <tbody>
-              @foreach ($wrhss as $wrhs)
+              @foreach ($purchases as $purchase)
                 <tr>
-                  <td class="break-words">{{ $wrhs->proker }}</td>
-                  <td class="break-words">{{ $wrhs->renker }}</td>
-                  <td class="break-words">{{ $wrhs->target }}</td>
-                  <td>{{ $wrhs->janw1 == 'OK' ? '✔️' : $wrhs->janw1 }}</td>
-                  <td>{{ $wrhs->janw2 == 'OK' ? '✔️' : $wrhs->janw2 }}</td>
-                  <td>{{ $wrhs->janw3 == 'OK' ? '✔️' : $wrhs->janw3 }}</td>
-                  <td>{{ $wrhs->janw4 == 'OK' ? '✔️' : $wrhs->janw4 }}</td>
+                  <td class="break-words">{{ $purchase->proker }}</td>
+                  <td class="break-words">{{ $purchase->renker }}</td>
+                  <td class="break-words">{{ $purchase->target }}</td>
+                  <td>{{ $purchase->janw1 == 'OK' ? '✔️' : $purchase->janw1 }}</td>
+                  <td>{{ $purchase->janw2 == 'OK' ? '✔️' : $purchase->janw2 }}</td>
+                  <td>{{ $purchase->janw3 == 'OK' ? '✔️' : $purchase->janw3 }}</td>
+                  <td>{{ $purchase->janw4 == 'OK' ? '✔️' : $purchase->janw4 }}</td>
                   <td class="whitespace-nowrap px-4 py-2" style="text-align: center;">
-                    @if ($wrhs->hasil)
+                    @if ($purchase->hasil)
                       <div>
-                        <a wrhsef="{{ Storage::url($wrhs->hasil) }}" 
+                        <a purchaseef="{{ Storage::url($purchase->hasil) }}" 
                           class="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                          download="{{ Str::afterLast($wrhs->hasil, '/') }}">
+                          download="{{ Str::afterLast($purchase->hasil, '/') }}">
                           Sudah Upload
                         </a>
                       </div>
@@ -56,13 +56,13 @@
                         diupload.</span>
                     @endif
                   </td>
-                  <td style="text-align: center;">{{ $wrhs->achieve }}</td>
-                  <td class="break-words" style="text-align: center;">{{ $wrhs->ket }}</td>
-                  <td style="text-align: center;">{{ $wrhs->persen }}</td>
+                  <td style="text-align: center;">{{ $purchase->achieve }}</td>
+                  <td class="break-words" style="text-align: center;">{{ $purchase->ket }}</td>
+                  <td style="text-align: center;">{{ $purchase->persen }}</td>
                   <td style="text-align: center; padding: 1.5rem 1.5rem 1.5rem 1.5rem;">
                     @role('user')
-                      @if (empty($wrhs->hasil))
-                        <a wrhsef="{{ route('dashboard.wrhs.edit', $wrhs->id) }}"
+                      @if (empty($purchase->hasil))
+                        <a purchaseef="{{ route('dashboard.purchase.edit', $purchase->id) }}"
                           class="text-white bg-blue-700 hover:bg-blue-800 
                           focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2
                            dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Input
@@ -74,7 +74,7 @@
                       @endif
                     @endrole
                     @role('admin')
-                      <a wrhsef="{{ route('dashboard.wrhs.edit', $wrhs->id) }}"
+                      <a purchaseef="{{ route('dashboard.purchase.edit', $purchase->id) }}"
                         class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">Input
                         Data</a>
                     @endrole
