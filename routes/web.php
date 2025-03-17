@@ -72,7 +72,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::middleware(['role:ecm|admin'])->group(function () {
         Route::resource('ecm', EcmController::class);
         Route::get('/dashboard/ecm', [EcmController::class, 'index'])->name('dashboard.ecm.index');
-        Route::get('/ecm/{id}/edit', [EcmController::class, 'edit'])->name('dashhboard.ecm.edit');
+        Route::get('/ecm/{id}/edit', [EcmController::class, 'edit'])->name('dashboard.ecm.edit');
         Route::PUT('/dashboard/ecm/{id}', [EcmController::class, 'update'])->name('dashboard.ecm.update');
     });
     Route::middleware(['role:bdrnd|admin'])->group(function () {

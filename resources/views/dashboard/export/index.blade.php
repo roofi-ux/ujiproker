@@ -13,7 +13,7 @@
           <table id="example" class="cell-border compact stripe " style="width:100%">
             <thead>
               <tr>
-                <th rowspan="2">Program Kerja</th>
+                <th rowspan="2" >Program Kerja</th>
                 <th rowspan="2">Rencana Kerja
                 </th>
                 <th rowspan="2">Target</th>
@@ -33,21 +33,21 @@
               </tr>
             </thead>
             <tbody>
-              @foreach ($ecms as $ecm)
+              @foreach ($exports as $export)
                 <tr>
-                  <td class="break-words">{{ $ecm->proker }}</td>
-                  <td class="break-words">{{ $ecm->renker }}</td>
-                  <td class="break-words">{{ $ecm->target }}</td>
-                  <td>{{ $ecm->janw1 == 'OK' ? '✔️' : $ecm->janw1 }}</td>
-                  <td>{{ $ecm->janw2 == 'OK' ? '✔️' : $ecm->janw2 }}</td>
-                  <td>{{ $ecm->janw3 == 'OK' ? '✔️' : $ecm->janw3 }}</td>
-                  <td>{{ $ecm->janw4 == 'OK' ? '✔️' : $ecm->janw4 }}</td>
+                  <td class="break-words">{{ $export->proker }}</td>
+                  <td class="break-words">{{ $export->renker }}</td>
+                  <td class="break-words">{{ $export->target }}</td>
+                  <td>{{ $export->janw1 == 'OK' ? '✔️' : $export->janw1 }}</td>
+                  <td>{{ $export->janw2 == 'OK' ? '✔️' : $export->janw2 }}</td>
+                  <td>{{ $export->janw3 == 'OK' ? '✔️' : $export->janw3 }}</td>
+                  <td>{{ $export->janw4 == 'OK' ? '✔️' : $export->janw4 }}</td>
                   <td class="whitespace-nowrap px-4 py-2" style="text-align: center;">
-                    @if ($ecm->hasil)
+                    @if ($export->hasil)
                       <div>
-                        <a ecmef="{{ Storage::url($ecm->hasil) }}"
+                        <a exportef="{{ Storage::url($export->hasil) }}" 
                           class="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                          download="{{ Str::afterLast($ecm->hasil, '/') }}">
+                          download="{{ Str::afterLast($export->hasil, '/') }}">
                           Sudah Upload
                         </a>
                       </div>
@@ -56,13 +56,13 @@
                         diupload.</span>
                     @endif
                   </td>
-                  <td style="text-align: center;">{{ $ecm->achieve }}</td>
-                  <td class="break-words" style="text-align: center;">{{ $ecm->ket }}</td>
-                  <td style="text-align: center;">{{ $ecm->persen }}</td>
+                  <td style="text-align: center;">{{ $export->achieve }}</td>
+                  <td class="break-words" style="text-align: center;">{{ $export->ket }}</td>
+                  <td style="text-align: center;">{{ $export->persen }}</td>
                   <td style="text-align: center; padding: 1.5rem 1.5rem 1.5rem 1.5rem;">
                     @role('user')
-                      @if (empty($ecm->hasil))
-                        <a href="{{ route('dashboard.ecm.edit', $ecm->id) }}"
+                      @if (empty($export->hasil))
+                        <a exportef="{{ route('dashboard.export.edit', $export->id) }}"
                           class="text-white bg-blue-700 hover:bg-blue-800 
                           focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2
                            dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Input
@@ -74,7 +74,7 @@
                       @endif
                     @endrole
                     @role('admin')
-                      <a ecmef="{{ route('dashboard.ecm.edit', $ecm->id) }}"
+                      <a exportef="{{ route('dashboard.export.edit', $export->id) }}"
                         class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">Input
                         Data</a>
                     @endrole
