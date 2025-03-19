@@ -6,7 +6,7 @@ use App\Models\qa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class qaController extends Controller
+class QaController extends Controller
 {
     /**
      * Display a listing of the resource.

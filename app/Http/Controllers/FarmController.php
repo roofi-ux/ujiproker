@@ -6,7 +6,7 @@ use App\Models\farm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class farmController extends Controller
+class FarmController extends Controller
 {
     /**
      * Display a listing of the resource.

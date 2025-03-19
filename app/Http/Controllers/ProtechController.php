@@ -6,7 +6,7 @@ use App\Models\protech;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class protechController extends Controller
+class ProtechController extends Controller
 {
     /**
      * Display a listing of the resource.

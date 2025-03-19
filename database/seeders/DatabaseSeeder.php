@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             wrhsSeeder::class,
             purchaseSeeder::class,
             financeSeeder::class,
+            
         ]);
 
         // User::factory()->create([

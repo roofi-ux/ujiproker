@@ -6,7 +6,7 @@ use App\Models\mt;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class mtController extends Controller
+class MtController extends Controller
 {
     /**
      * Display a listing of the resource.
