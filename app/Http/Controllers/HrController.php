@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\hr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class HrController extends Controller
 {
@@ -13,6 +14,7 @@ class HrController extends Controller
      */
     public function index()
     {
+        
         $hrs = hr::all();
         return view('dashboard.hr.index', ['hrs' => $hrs]);
     }

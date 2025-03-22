@@ -6,7 +6,7 @@ use App\Models\finance;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class financeController extends Controller
+class FinanceController extends Controller
 {
     /**
      * Display a listing of the resource.

@@ -6,7 +6,7 @@ use App\Models\qcs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class qcsController extends Controller
+class QcsController extends Controller
 {
     /**
      * Display a listing of the resource.

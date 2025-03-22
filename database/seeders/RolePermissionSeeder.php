@@ -3,11 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
-
 use Spatie\Permission\Models\Permission;
 use App\Models\Division;
 
@@ -18,24 +16,10 @@ class RolePermissionSeeder extends Seeder
      */
     public function run(): void
     {
-        $divisiPrd = Division::where('name', 'prd')->first();
-        $divisiHr = Division::where('name', 'hr')->first();
-        $divisiGa = Division::where('name', 'ga')->first();
-        $divisiMkt = Division::where('name', 'mkt')->first();
-        $divisiEcm = Division::where('name', 'ecm')->first();
-        $divisiBdRnd = Division::where('name', 'bdrnd')->first();
-        $divisiCnc = Division::where('name', 'cnc')->first();
-        $divisiWrhs = Division::where('name', 'wrhs')->first();
-        $divisiQcs = Division::where('name', 'qcs')->first();
-        $divisiQcp = Division::where('name', 'qcp')->first();
-        $divisiQa = Division::where('name', 'qa')->first();
-        $divisiMt = Division::where('name', 'mt')->first();
-        $divisiProtech = Division::where('name', 'protech')->first();
-        $divisiFarm = Division::where('name', 'farm')->first();
-        $divisiFinance = Division::where('name', 'finance')->first();
-        $divisiExport = Division::where('name', 'export')->first();
-        $divisiPurchase = Division::where('name', 'purchase')->first();
+        // Reset cached roles and permissions
+        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
+        // Buat permissions
         $permissions = [
             'create data',
             'view data',
@@ -45,19 +29,41 @@ class RolePermissionSeeder extends Seeder
         foreach ($permissions as $permission) {
             Permission::create(['name' => $permission]);
         }
+
+        // Buat roles
         $adminRole = Role::create(['name' => 'admin']);
-        $adminRole->givePermissionTo('create data', 'view data', 'update data', 'delete data');
-
         $userRole = Role::create(['name' => 'user']);
-        $userRole->givePermissionTo('view data', 'update data', );
+        $prdRole = Role::create(['name' => 'prd']);
+        $gaRole = Role::create(['name' => 'ga']);
+        $hrRole = Role::create(['name' => 'hr']);
+        $mktRole = Role::create(['name' => 'mkt']);
+        $ecmRole = Role::create(['name' => 'ecm']);
+        $bdrndRole = Role::create(['name' => 'bdrnd']);
+        $cncRole = Role::create(['name' => 'cnc']);
+        $wrhsRole = Role::create(['name' => 'wrhs']);
+        $qcsRole = Role::create(['name' => 'qcs']);
+        $qcpRole = Role::create(['name' => 'qcp']);
+        $qaRole = Role::create(['name' => 'qa']);
+        $mtRole = Role::create(['name' => 'mt']);
+        $protechRole = Role::create(['name' => 'protech']);
+        $farmRole = Role::create(['name' => 'farm']);
+        $financeRole = Role::create(['name' => 'finance']);
+        $exportRole = Role::create(['name' => 'export']);
+        $purchaseRole = Role::create(['name' => 'purchase']);
 
-        $user = User::create([
+        // Berikan permissions ke roles
+        $adminRole->givePermissionTo('create data', 'view data', 'update data', 'delete data');
+        $userRole->givePermissionTo('view data', 'update data');
+
+        // Buat user dan berikan roles yang sesuai dengan divisi mereka
+        $userAdmin = User::create([
             'name' => 'Roofi',
             'email' => 'admin@mail.com',
             'password' => bcrypt('admin123'),
         ]);
-        $user->assignRole('admin');
+        $userAdmin->assignRole('admin');
 
+<<<<<<< HEAD
         $user = User::create([
             'name' => 'Anak Agung Raka Bagus Vinaya',
             'email' => 'raka@mail.com',
@@ -66,143 +72,142 @@ class RolePermissionSeeder extends Seeder
         $user->assignRole('admin');
 
         $regularUser = User::create([
+=======
+        $userGalih = User::create([
+>>>>>>> test-commit
             'name' => 'Galih',
-            'email' => 'galih@mail.com', // Email user keuangan
+            'email' => 'galih@mail.com',
             'password' => bcrypt('user123'),
-            'division_id' => $divisiPrd->id, // Berikan divisi Keuangan ke user biasa ini
+            'division_id' => Division::where('name', 'prd')->first()->id ?? null, // Sesuaikan dengan nama divisi yang benar
         ]);
-        $regularUser->assignRole('user');
+        $userGalih->assignRole('prd'); // Berikan role 'prd'
 
-        $regularUser = User::create([
+        $userChotyHr = User::create([
             'name' => 'choty',
-            'email' => 'choty@hr.com', // Email user keuangan
+            'email' => 'choty@hr.com',
             'password' => bcrypt('user123'),
-            'division_id' => $divisiHr->id, // Berikan divisi Keuangan ke user biasa ini
+            'division_id' => Division::where('name', 'hr')->first()->id ?? null, // Sesuaikan dengan nama divisi yang benar
         ]);
-        $regularUser->assignRole('user');
+        $userChotyHr->assignRole('hr'); // Berikan role 'hr'
 
-        $regularUser = User::create([
+        $userChotyGa = User::create([
             'name' => 'choty',
-            'email' => 'choty@ga.com', // Email user keuangan
+            'email' => 'choty@ga.com',
             'password' => bcrypt('user123'),
-            'division_id' => $divisiGa->id, // Berikan divisi Keuangan ke user biasa ini
+            'division_id' => Division::where('name', 'ga')->first()->id ?? null, // Sesuaikan dengan nama divisi yang benar
         ]);
-        $regularUser->assignRole('user');
+        $userChotyGa->assignRole('ga'); // Berikan role 'ga'
 
-        $regularUser = User::create([
+        $userFrida = User::create([
             'name' => 'Frida',
-            'email' => 'frida@mail.com', // Email user keuangan
+            'email' => 'frida@mail.com',
             'password' => bcrypt('user123'),
-            'division_id' => $divisiMkt->id, // Berikan divisi Keuangan ke user biasa ini
+            'division_id' => Division::where('name', 'mkt')->first()->id ?? null, // Sesuaikan dengan nama divisi yang benar
         ]);
-        $regularUser->assignRole('user');
+        $userFrida->assignRole('mkt'); // Berikan role 'mkt'
 
-        $regularUser = User::create([
+        $userMaulin = User::create([
             'name' => 'Maulin',
-            'email' => 'maulin@mail.com', // Email user keuangan
+            'email' => 'maulin@mail.com',
             'password' => bcrypt('user123'),
-            'division_id' => $divisiEcm->id, // Berikan divisi Keuangan ke user biasa ini
+            'division_id' => Division::where('name', 'ecm')->first()->id ?? null, // Sesuaikan dengan nama divisi yang benar
         ]);
-        $regularUser->assignRole('user');
+        $userMaulin->assignRole('ecm'); // Berikan role 'ecm'
 
-        $regularUser = User::create([
+        $userNisomBdrnd = User::create([
             'name' => 'Nisom',
-            'email' => 'nisom@bdrnd.com', // Email user keuangan
+            'email' => 'nisom@bdrnd.com',
             'password' => bcrypt('user123'),
-            'division_id' => $divisiBdRnd->id, // Berikan divisi Keuangan ke user biasa ini
+            'division_id' => Division::where('name', 'bdrnd')->first()->id ?? null, // Sesuaikan dengan nama divisi yang benar
         ]);
-        $regularUser->assignRole('user');
+        $userNisomBdrnd->assignRole('bdrnd'); // Berikan role 'bdrnd'
 
-        $regularUser = User::create([
+        $userYhunis = User::create([
             'name' => 'Yhunis',
-            'email' => 'yhunis@mail.com', // Email user keuangan
+            'email' => 'yhunis@mail.com',
             'password' => bcrypt('user123'),
-            'division_id' => $divisiCnc->id, // Berikan divisi Keuangan ke user biasa ini
+            'division_id' => Division::where('name', 'cnc')->first()->id ?? null, // Sesuaikan dengan nama divisi yang benar
         ]);
-        $regularUser->assignRole('user');
+        $userYhunis->assignRole('cnc'); // Berikan role 'cnc'
 
-        $regularUser = User::create([
+        $userHangga = User::create([
             'name' => 'Hangga',
-            'email' => 'hangga@mail.com', // Email user keuangan
+            'email' => 'hangga@mail.com',
             'password' => bcrypt('user123'),
-            'division_id' => $divisiWrhs->id, // Berikan divisi Keuangan ke user biasa ini
+            'division_id' => Division::where('name', 'wrhs')->first()->id ?? null, // Sesuaikan dengan nama divisi yang benar
         ]);
-        $regularUser->assignRole('user');
+        $userHangga->assignRole('wrhs'); // Berikan role 'wrhs'
 
-        $regularUser = User::create([
+        $userShokibi = User::create([
             'name' => 'Shokibi',
-            'email' => 'kibi@mail.com', // Email user keuangan
+            'email' => 'kibi@mail.com',
             'password' => bcrypt('user123'),
-            'division_id' => $divisiQcs->id, // Berikan divisi Keuangan ke user biasa ini
+            'division_id' => Division::where('name', 'qcs')->first()->id ?? null, // Sesuaikan dengan nama divisi yang benar
         ]);
-        $regularUser->assignRole('user');
+        $userShokibi->assignRole('qcs'); // Berikan role 'qcs'
 
-        $regularUser = User::create([
+        $userNisomQcp = User::create([
             'name' => 'Nisom',
-            'email' => 'nisom@qcp.com', // Email user keuangan
+            'email' => 'nisom@qcp.com',
             'password' => bcrypt('user123'),
-            'division_id' => $divisiQcp->id, // Berikan divisi Keuangan ke user biasa ini
+            'division_id' => Division::where('name', 'qcp')->first()->id ?? null, // Sesuaikan dengan nama divisi yang benar
         ]);
-        $regularUser->assignRole('user');
+        $userNisomQcp->assignRole('qcp'); // Berikan role 'qcp'
 
-        $regularUser = User::create([
+        $userAle = User::create([
             'name' => 'Ale',
-            'email' => 'ale@mail.com', // Email user keuangan
+            'email' => 'ale@mail.com',
             'password' => bcrypt('user123'),
-            'division_id' => $divisiQa->id, // Berikan divisi Keuangan ke user biasa ini
+            'division_id' => Division::where('name', 'qa')->first()->id ?? null, // Sesuaikan dengan nama divisi yang benar
         ]);
-        $regularUser->assignRole('user');
+        $userAle->assignRole('qa'); // Berikan role 'qa'
 
-        $regularUser = User::create([
+        $userKhopid = User::create([
             'name' => 'Khopid',
-            'email' => 'khopid@mail.com', // Email user keuangan
+            'email' => 'khopid@mail.com',
             'password' => bcrypt('user123'),
-            'division_id' => $divisiMt->id, // Berikan divisi Keuangan ke user biasa ini
+            'division_id' => Division::where('name', 'mt')->first()->id ?? null, // Sesuaikan dengan nama divisi yang benar
         ]);
-        $regularUser->assignRole('user');
+        $userKhopid->assignRole('mt'); // Berikan role 'mt'
 
-        $regularUser = User::create([
+        $userWinartoProtech = User::create([
             'name' => 'Winarto',
-            'email' => 'winarto@protech.com', // Email user keuangan
+            'email' => 'winarto@protech.com',
             'password' => bcrypt('user123'),
-            'division_id' => $divisiProtech->id, // Berikan divisi Keuangan ke user biasa ini
+            'division_id' => Division::where('name', 'protech')->first()->id ?? null, // Sesuaikan dengan nama divisi yang benar
         ]);
-        $regularUser->assignRole('user');
+        $userWinartoProtech->assignRole('protech'); // Berikan role 'protech'
 
-        $regularUser = User::create([
+        $userWinartoFarm = User::create([
             'name' => 'Winarto',
-            'email' => 'winarto@farm.com', // Email user keuangan
+            'email' => 'winarto@farm.com',
             'password' => bcrypt('user123'),
-            'division_id' => $divisiFarm->id, // Berikan divisi Keuangan ke user biasa ini
+            'division_id' => Division::where('name', 'farm')->first()->id ?? null, // Sesuaikan dengan nama divisi yang benar
         ]);
-        $regularUser->assignRole('user');
+        $userWinartoFarm->assignRole('farm'); // Berikan role 'farm'
 
-        $regularUser = User::create([
-            'name' => 'Kennet',
-            'email' => 'ken@mail.com', // Email user keuangan
-            'password' => bcrypt('user123'),
-            'division_id' => $divisiExport->id, // Berikan divisi Keuangan ke user biasa ini
-        ]);
-        $regularUser->assignRole('user');
-
-        $regularUser = User::create([
+        $userFarid = User::create([
             'name' => 'Farid',
-            'email' => 'farid@mail.com', // Email user keuangan
+            'email' => 'farid@mail.com',
             'password' => bcrypt('user123'),
-            'division_id' => $divisiFinance->id, // Berikan divisi Keuangan ke user biasa ini
+            'division_id' => Division::where('name', 'finance')->first()->id ?? null, // Sesuaikan dengan nama divisi yang benar
         ]);
-        $regularUser->assignRole('user');
+        $userFarid->assignRole('finance'); // Berikan role 'finance'
 
-        $regularUser = User::create([
+        $userNizar = User::create([
             'name' => 'Nizar',
-            'email' => 'nizar@mail.com', // Email user keuangan
+            'email' => 'nizar@mail.com',
             'password' => bcrypt('user123'),
-            'division_id' => $divisiPurchase->id, // Berikan divisi Keuangan ke user biasa ini
+            'division_id' => Division::where('name', 'purchase')->first()->id ?? null, // Sesuaikan dengan nama divisi yang benar
         ]);
-        $regularUser->assignRole('user');
+        $userNizar->assignRole('purchase'); // Berikan role 'purchase'
 
-
-
-
+        $userKennet = User::create([
+            'name' => 'Kennet',
+            'email' => 'ken@mail.com',
+            'password' => bcrypt('user123'),
+            'division_id' => Division::where('name', 'export')->first()->id ?? null, // Sesuaikan dengan nama divisi yang benar
+        ]);
+        $userKennet->assignRole('export'); // Berikan role 'export'
     }
 }

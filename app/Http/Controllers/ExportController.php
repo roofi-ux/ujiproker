@@ -6,7 +6,7 @@ use App\Models\export;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class exportController extends Controller
+class ExportController extends Controller
 {
     /**
      * Display a listing of the resource.

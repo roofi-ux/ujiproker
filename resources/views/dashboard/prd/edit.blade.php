@@ -11,7 +11,7 @@
         <div class="p-6 text-gray-900 dark:text-gray-100">
 
           <div class="container mx-auto py-6">
-            <h1 class="text-2xl font-bold mb-4">Data Hasil Produksi</h1>
+            <h1 class="text-2xl font-bold mb-4">Data Hasil prd</h1>
 
             <div class="mb-4">
               <a href="{{ route('dashboard.prd.index') }}"
@@ -30,7 +30,8 @@
               <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                   <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <form method="POST" action="{{ route('dashboard.prd.update', $prd->id) }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('dashboard.prd.update', $prd->id) }}"
+                      enctype="multipart/form-data">
                       @csrf
                       @method('PUT')
 
@@ -98,90 +99,116 @@
                         <div class="relative z-0 w-full mb-6 group">
                           <label for="hasil_pdf"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Hasil (PDF)</label>
-                          <input type="file" name="hasil_pdf" id="hasil_pdf"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Upload File PDF">
-                          @error('hasil_pdf')
-                            <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</p>
-                          @enderror
-                          @if ($prd->hasil)
-                            <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">File PDF Tersimpan: <a
-                                href="{{ Storage::url($prd->hasil) }}" target="_blank"
+                          @if (auth()->check() && auth()->user()->hasRole('prd'))
+                            <input type="file" name="hasil_pdf" id="hasil_pdf"
+                              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                              placeholder="Upload File PDF">
+                            @error('hasil_pdf')
+                              <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</p>
+                            @enderror
+                            @if ($prd->hasil)
+                              <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">File PDF Tersimpan:
+                                <a href="{{ Storage::url($prd->hasil) }}" target="_blank"
+                                  class="underline text-blue-600 dark:text-blue-500 hover:text-blue-800 dark:hover:text-blue-700">{{ Str::afterLast($prd->hasil, '/') }}</a>
+                              </p>
+                            @endif
+                          @else
+                            @if ($prd->hasil)
+                              <p class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">File PDF
+                                Tersimpan:</p>
+                              <a href="{{ Storage::url($prd->hasil) }}" target="_blank"
                                 class="underline text-blue-600 dark:text-blue-500 hover:text-blue-800 dark:hover:text-blue-700">{{ Str::afterLast($prd->hasil, '/') }}</a>
-                            </p>
+                            @else
+                              <p class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Belum ada file
+                                PDF diupload.</p>
+                            @endif
                           @endif
                         </div>
+
                         <div class="relative z-0 w-full mb-6 group">
                           <label for="persen"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Persentase</label>
-                          <ul
-                            class="items-center w-full text-sm font-medium text-gray-900 bg-gray-50 border border-gray-300 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                            <li>
-                              <div class="flex items-center ps-3">
-                                <input id="persen-0" type="radio" value="0%" name="persen"
-                                  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                                  {{ old('persen', $prd->persen) == '0%' ? 'checked' : '' }} required>
-                                <label for="persen-0"
-                                  class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">0%</label>
-                              </div>
-                            </li>
-                            <li>
-                              <div class="flex items-center ps-3">
-                                <input id="persen-25" type="radio" value="25%" name="persen"
-                                  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                                  {{ old('persen', $prd->persen) == '25%' ? 'checked' : '' }} required>
-                                <label for="persen-25"
-                                  class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">25%</label>
-                              </div>
-                            </li>
-                            <li>
-                              <div class="flex items-center ps-3">
-                                <input id="persen-50" type="radio" value="50%" name="persen"
-                                  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                                  {{ old('persen', $prd->persen) == '50%' ? 'checked' : '' }} required>
-                                <label for="persen-50"
-                                  class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">50%</label>
-                              </div>
-                            </li>
-                            <li>
-                              <div class="flex items-center ps-3">
-                                <input id="persen-75" type="radio" value="75%" name="persen"
-                                  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                                  {{ old('persen', $prd->persen) == '75%' ? 'checked' : '' }} required>
-                                <label for="persen-75"
-                                  class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">75%</label>
-                              </div>
-                            </li>
-                            <li>
-                              <div class="flex items-center ps-3">
-                                <input id="persen-100" type="radio" value="100%" name="persen"
-                                  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                                  {{ old('persen', $prd->persen) == '100%' ? 'checked' : '' }} required>
-                                <label for="persen-100"
-                                  class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">100%</label>
-                              </div>
-                            </li>
-                          </ul>
+                          @if (auth()->check() && auth()->user()->hasRole('admin'))
+                            <ul
+                              class="items-center w-full text-sm font-medium text-gray-900 bg-gray-50 border border-gray-300 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                              <li>
+                                <div class="flex items-center ps-3">
+                                  <input id="persen-50-59" type="radio" value="50%-59%" name="persen"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                                    {{ old('persen', $prd->persen) == '50%-59%' ? 'checked' : '' }} required>
+                                  <label for="persen-50-59"
+                                    class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">50%-59%</label>
+                                </div>
+                              </li>
+                              <li>
+                                <div class="flex items-center ps-3">
+                                  <input id="persen-60-69" type="radio" value="60%-69%" name="persen"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                                    {{ old('persen', $prd->persen) == '60%-69%' ? 'checked' : '' }} required>
+                                  <label for="persen-60-69"
+                                    class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">60%-69%</label>
+                                </div>
+                              </li>
+                              <li>
+                                <div class="flex items-center ps-3">
+                                  <input id="persen-70-79" type="radio" value="70%-79%" name="persen"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                                    {{ old('persen', $prd->persen) == '70%-79%' ? 'checked' : '' }} required>
+                                  <label for="persen-70-79"
+                                    class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">70%-79%</label>
+                                </div>
+                              </li>
+                              <li>
+                                <div class="flex items-center ps-3">
+                                  <input id="persen-80-89" type="radio" value="80%-89%" name="persen"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                                    {{ old('persen', $prd->persen) == '80%-89%' ? 'checked' : '' }} required>
+                                  <label for="persen-80-89"
+                                    class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">80%-89%</label>
+                                </div>
+                              </li>
+                              <li>
+                                <div class="flex items-center ps-3">
+                                  <input id="persen-90-100" type="radio" value="90%-100%" name="persen"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                                    {{ old('persen', $prd->persen) == '90%-100%' ? 'checked' : '' }} required>
+                                  <label for="persen-90-100"
+                                    class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">90%-100%</label>
+                                </div>
+                              </li>
+                            </ul>
+                          @else
+                            <input type="text"
+                              class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                              value="{{ old('persen', $prd->persen) }}" readonly />
+                          @endif
                           @error('persen')
                             <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</p>
                           @enderror
                         </div>
+
                       </div>
                       <div class="grid md:grid-cols-2 md:gap-6">
                         <div class="relative z-0 w-full mb-6 group">
                           <label for="achieve"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Achieve</label>
-                          <select name="achieve" id="achieve"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            required>
-                            <option value="" {{ old('achieve', $prd->achieve) == '' ? 'selected' : '' }}>--
-                              Pilih Achieve --</option>
-                            <option value="Achieve"
-                              {{ old('achieve', $prd->achieve) == 'Achieve' ? 'selected' : '' }}>Achieve</option>
-                            <option value="Not Achieve"
-                              {{ old('achieve', $prd->achieve) == 'Not Achieve' ? 'selected' : '' }}>Not Achieve
-                            </option>
-                          </select>
+                          @if (auth()->check() && auth()->user()->hasRole('admin'))
+                            <select name="achieve" id="achieve"
+                              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                              required>
+                              <option value="" {{ old('achieve', $prd->achieve) == '' ? 'selected' : '' }}>--
+                                Pilih Achieve --</option>
+                              <option value="Achieve"
+                                {{ old('achieve', $prd->achieve) == 'Achieve' ? 'selected' : '' }}>Achieve</option>
+                              <option value="Not Achieve"
+                                {{ old('achieve', $prd->achieve) == 'Not Achieve' ? 'selected' : '' }}>Not Achieve
+                              </option>
+                            </select>
+                          @else
+                            <input type="text"
+                              class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                              value="{{ old('achieve', $prd->achieve) }}" readonly />
+                          @endif
                           @error('achieve')
                             <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</p>
                           @enderror
@@ -189,9 +216,15 @@
                         <div class="relative z-0 w-full mb-6 group">
                           <label for="ket"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Keterangan</label>
-                          <textarea name="ket" id="ket" rows="3"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Keterangan Tambahan (Opsional)">{{ old('ket', $prd->ket) }}</textarea>
+                          @if (auth()->check() && auth()->user()->hasRole('admin'))
+                            <textarea name="ket" id="ket" rows="3"
+                              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                              placeholder="Keterangan Tambahan (Opsional)">{{ old('ket', $prd->ket) }}</textarea>
+                          @else
+                            <textarea id="ket" rows="3"
+                              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                              readonly>{{ old('ket', $prd->ket) }}</textarea>
+                          @endif
                           @error('ket')
                             <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</p>
                           @enderror
@@ -199,9 +232,11 @@
                       </div>
 
                       <div class="flex justify-end mt-4">
+
                         <button type="submit"
-                          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update
-                          Data</button>
+                          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                          input Data</button>
+
                       </div>
                     </form>
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
@@ -209,4 +244,9 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </x-app-layout>

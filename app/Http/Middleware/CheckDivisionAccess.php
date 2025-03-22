@@ -49,10 +49,10 @@ class CheckDivisionAccess
      * Anda perlu mengimplementasikan logika ini sesuai dengan sistem admin Anda.
      * Contoh: cek role 'admin' atau kolom 'is_admin' di tabel users.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @return bool
      */
-    protected function isAdmin($user)
+    protected function isAdmin(\Illuminate\Contracts\Auth\Authenticatable $user)
     {
         // Contoh jika Anda menggunakan Spatie Roles & Permissions
         // return $user->hasRole('admin');

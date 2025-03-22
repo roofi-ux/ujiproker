@@ -6,7 +6,7 @@ use App\Models\mkt;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class mktController extends Controller
+class MktController extends Controller
 {
     /**
      * Display a listing of the resource.

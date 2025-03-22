@@ -6,7 +6,7 @@ use App\Models\purchase;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class purchaseController extends Controller
+class PurchaseController extends Controller
 {
     /**
      * Display a listing of the resource.

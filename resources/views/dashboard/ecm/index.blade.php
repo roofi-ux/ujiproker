@@ -45,7 +45,11 @@
                   <td class="whitespace-nowrap px-4 py-2" style="text-align: center;">
                     @if ($ecm->hasil)
                       <div>
+<<<<<<< HEAD
                         <a ecmef="{{ Storage::url($ecm->hasil) }}"
+=======
+                        <a href="{{ Storage::url($ecm->hasil) }}"
+>>>>>>> test-commit
                           class="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline"
                           download="{{ Str::afterLast($ecm->hasil, '/') }}">
                           Sudah Upload
@@ -60,7 +64,7 @@
                   <td class="break-words" style="text-align: center;">{{ $ecm->ket }}</td>
                   <td style="text-align: center;">{{ $ecm->persen }}</td>
                   <td style="text-align: center; padding: 1.5rem 1.5rem 1.5rem 1.5rem;">
-                    @role('user')
+                    @role('ecm')
                       @if (empty($ecm->hasil))
                         <a href="{{ route('dashboard.ecm.edit', $ecm->id) }}"
                           class="text-white bg-blue-700 hover:bg-blue-800 
@@ -74,7 +78,7 @@
                       @endif
                     @endrole
                     @role('admin')
-                      <a ecmef="{{ route('dashboard.ecm.edit', $ecm->id) }}"
+                      <a href="{{ route('dashboard.ecm.edit', $ecm->id) }}"
                         class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">Input
                         Data</a>
                     @endrole

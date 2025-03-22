@@ -6,7 +6,7 @@ use App\Models\ga;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class gaController extends Controller
+class GaController extends Controller
 {
     /**
      * Display a listing of the resource.

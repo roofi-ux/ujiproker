@@ -6,7 +6,7 @@ use App\Models\wrhs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class wrhsController extends Controller
+class WrhsController extends Controller
 {
     /**
      * Display a listing of the resource.

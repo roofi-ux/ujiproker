@@ -11,7 +11,7 @@
         <div class="p-6 text-gray-900 dark:text-gray-100">
 
           <div class="container mx-auto py-6">
-            <h1 class="text-2xl font-bold mb-4">Data Hasil HR</h1>
+            <h1 class="text-2xl font-bold mb-4">Data Hasil hr</h1>
 
             <div class="mb-4">
               <a href="{{ route('dashboard.hr.index') }}"
@@ -99,7 +99,7 @@
                         <div class="relative z-0 w-full mb-6 group">
                           <label for="hasil_pdf"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Hasil (PDF)</label>
-                          @if (auth()->check() && auth()->user()->hasRole('user'))
+                          @if (auth()->check() && auth()->user()->hasRole('hr'))
                             <input type="file" name="hasil_pdf" id="hasil_pdf"
                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                               placeholder="Upload File PDF">
@@ -124,6 +124,7 @@
                             @endif
                           @endif
                         </div>
+
                         <div class="relative z-0 w-full mb-6 group">
                           <label for="persen"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Persentase</label>
@@ -132,47 +133,47 @@
                               class="items-center w-full text-sm font-medium text-gray-900 bg-gray-50 border border-gray-300 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                               <li>
                                 <div class="flex items-center ps-3">
-                                  <input id="persen-0" type="radio" value="0%" name="persen"
+                                  <input id="persen-50-59" type="radio" value="50%-59%" name="persen"
                                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                                    {{ old('persen', $hr->persen) == '0%' ? 'checked' : '' }} required>
-                                  <label for="persen-0"
-                                    class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">0%</label>
+                                    {{ old('persen', $hr->persen) == '50%-59%' ? 'checked' : '' }} required>
+                                  <label for="persen-50-59"
+                                    class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">50%-59%</label>
                                 </div>
                               </li>
                               <li>
                                 <div class="flex items-center ps-3">
-                                  <input id="persen-25" type="radio" value="25%" name="persen"
+                                  <input id="persen-60-69" type="radio" value="60%-69%" name="persen"
                                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                                    {{ old('persen', $hr->persen) == '25%' ? 'checked' : '' }} required>
-                                  <label for="persen-25"
-                                    class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">25%</label>
+                                    {{ old('persen', $hr->persen) == '60%-69%' ? 'checked' : '' }} required>
+                                  <label for="persen-60-69"
+                                    class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">60%-69%</label>
                                 </div>
                               </li>
                               <li>
                                 <div class="flex items-center ps-3">
-                                  <input id="persen-50" type="radio" value="50%" name="persen"
+                                  <input id="persen-70-79" type="radio" value="70%-79%" name="persen"
                                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                                    {{ old('persen', $hr->persen) == '50%' ? 'checked' : '' }} required>
-                                  <label for="persen-50"
-                                    class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">50%</label>
+                                    {{ old('persen', $hr->persen) == '70%-79%' ? 'checked' : '' }} required>
+                                  <label for="persen-70-79"
+                                    class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">70%-79%</label>
                                 </div>
                               </li>
                               <li>
                                 <div class="flex items-center ps-3">
-                                  <input id="persen-75" type="radio" value="75%" name="persen"
+                                  <input id="persen-80-89" type="radio" value="80%-89%" name="persen"
                                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                                    {{ old('persen', $hr->persen) == '75%' ? 'checked' : '' }} required>
-                                  <label for="persen-75"
-                                    class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">75%</label>
+                                    {{ old('persen', $hr->persen) == '80%-89%' ? 'checked' : '' }} required>
+                                  <label for="persen-80-89"
+                                    class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">80%-89%</label>
                                 </div>
                               </li>
                               <li>
                                 <div class="flex items-center ps-3">
-                                  <input id="persen-100" type="radio" value="100%" name="persen"
+                                  <input id="persen-90-100" type="radio" value="90%-100%" name="persen"
                                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                                    {{ old('persen', $hr->persen) == '100%' ? 'checked' : '' }} required>
-                                  <label for="persen-100"
-                                    class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">100%</label>
+                                    {{ old('persen', $hr->persen) == '90%-100%' ? 'checked' : '' }} required>
+                                  <label for="persen-90-100"
+                                    class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">90%-100%</label>
                                 </div>
                               </li>
                             </ul>
@@ -185,6 +186,7 @@
                             <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</p>
                           @enderror
                         </div>
+
                       </div>
                       <div class="grid md:grid-cols-2 md:gap-6">
                         <div class="relative z-0 w-full mb-6 group">
