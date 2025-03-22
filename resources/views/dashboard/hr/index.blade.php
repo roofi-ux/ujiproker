@@ -13,7 +13,7 @@
           <table id="example" class="cell-border compact stripe " style="width:100%">
             <thead>
               <tr>
-                <th rowspan="2" >Program Kerja</th>
+                <th rowspan="2">Program Kerja</th>
                 <th rowspan="2">Rencana Kerja
                 </th>
                 <th rowspan="2">Target</th>
@@ -45,7 +45,7 @@
                   <td class="whitespace-nowrap px-4 py-2" style="text-align: center;">
                     @if ($hr->hasil)
                       <div>
-                        <a href="{{ Storage::url($hr->hasil) }}" 
+                        <a href="{{ Storage::url($hr->hasil) }}"
                           class="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline"
                           download="{{ Str::afterLast($hr->hasil, '/') }}">
                           Sudah Upload
@@ -60,7 +60,7 @@
                   <td class="break-words" style="text-align: center;">{{ $hr->ket }}</td>
                   <td style="text-align: center;">{{ $hr->persen }}</td>
                   <td style="text-align: center; padding: 1.5rem 1.5rem 1.5rem 1.5rem;">
-                    @role('user')
+                    @role('hr')
                       @if (empty($hr->hasil))
                         <a href="{{ route('dashboard.hr.edit', $hr->id) }}"
                           class="text-white bg-blue-700 hover:bg-blue-800 
